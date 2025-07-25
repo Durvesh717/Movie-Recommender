@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation System</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 Movie Recommendation System</h1>
+            <p class="subtitle">Discover your next favorite movie!</p>
+        </header>
+
+        <main>
+            <div class="search-section">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="movieInput" 
+                        placeholder="Enter a movie name (e.g., Avatar, Titanic, Batman)"
+                        autocomplete="off"
+                    >
+                    <button id="recommendBtn" onclick="getRecommendations()">
+                        Get Recommendations
+                    </button>
+                </div>
+                
+                <div class="suggestions" id="suggestions"></div>
+                
+                <div class="quick-actions">
+                    <button id="randomBtn" onclick="getRandomMovie()" class="secondary-btn">
+                        Try Random Movie
+                    </button>
+                    <button id="clearBtn" onclick="clearResults()" class="secondary-btn">
+                        Clear Results
+                    </button>
+                </div>
+            </div>
+
+            <div class="loading" id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Finding recommendations...</p>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <h2 id="resultsTitle">Recommendations</h2>
+                <div class="movies-grid" id="moviesGrid">
+                    <!-- Recommended movies will be displayed here -->
+                </div>
+            </div>
+
+            <div class="error-message" id="errorMessage" style="display: none;">
+                <p id="errorText"></p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Built with FastAPI and vanilla JavaScript | Content-based recommendation using cosine similarity</p>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
